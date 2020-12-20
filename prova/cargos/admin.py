@@ -1,3 +1,4 @@
 from django.contrib import admin
+from prova.cargos.models import  Cargos
 
-# Register your models here.
+admin.site.register(Cargos)
