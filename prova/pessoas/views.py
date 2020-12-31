@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .models import Pessoa
 
 def index(request):
-    return render(request, 'pessoas/index.html')
+    p = Pessoa.objects.all()
+    return render(request, 'pessoas/index.html', {'p':p})
 
 
