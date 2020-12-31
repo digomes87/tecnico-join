@@ -1,11 +1,20 @@
 from django.shortcuts import render
-from .models import Pessoa
+from .models import Pessoa, Mapa
+from .forms import MapaForm
+from django.urls import reverse_lazy
+from django import forms
+
 
 def index(request):
     p = Pessoa.objects.all()
-    mapbox_access_token = 'pk.my_mapbox_access_token'
-    return render(request, 'pessoas/index.html', {'p':p, 'mapbox_access_token': mapbox_access_token })
+    form = MapaForm()
 
+    if request.method == 'POST':
+        form =  MapaForm(request.POST)
+        if form.is_valid(): 
+            form.save()
+            form = MapaForm()
+        else:
+            form = MapaForm()
 
-def Coordenada(request):
-    pass
+    return render(request, 'pessoas/index.html', {'p':p, 'form':form})    

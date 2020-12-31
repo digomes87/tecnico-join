@@ -30,10 +30,12 @@
     <p>Exe 7:</p>
     <h2>Mapa</h2>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary center" data-toggle="modal" data-target="#exampleModal"> Incluir Novo Alvo </button>
-
+    <button type="button" class="btn btn-primary center" data-toggle="modal" data-target="#exampleModal"> Incluir Novo
+      Alvo </button>
     <!-- Modal -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -43,26 +45,21 @@
             </button>
           </div>
           <div class="modal-body">
-            <form>
-              <div class="form-group"><input type="text" class="form-control" id="identificador" placeholder="Identificador"></div>  
-              <div class="form-group"><input type="text" class="form-control" id="nome" placeholder="Nome"></div>
-              <div class="form-group"><input type="text" class="form-control" id="latitude" placeholder="Latitude"></div>
-              <div class="form-group"><input type="text" class="form-control" id="longitude" placeholder="longitude"></div>
-            </form> 
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>
-            <button type="button" class="btn btn-primary">Save</button>
+
+            <form method="post" action="">
+              {% csrf_token %}
+              {{form.as_p}}
+              <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content"></div>
+                </div>
+              </div>
+              <!-- Create button -->
+              <button id="create" class="btn btn-primary" type="submit" name="button">Salvar</button>
+            </form>
           </div>
         </div>
       </div>
     </div>
-
-    <script>
-        $('#myModal').on('shown.bs.modal', function () {
-          $('#myInput').trigger('focus')
-        })
-
-    </script>
   </div>
   {% endblock %}

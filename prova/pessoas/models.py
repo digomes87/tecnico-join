@@ -12,3 +12,13 @@ class Pessoa(models.Model):
 
     def __str__(self):
         return self.nome
+
+
+class  Mapa(models.Model):
+    identificador = models.CharField(max_length=100)
+    nome = models.CharField(max_length=50)
+    latitude = models.IntegerField(null=False)
+    longitude = models.IntegerField(null=False)
+
+    def __str__(self):
+        return self.identificador
