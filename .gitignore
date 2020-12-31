@@ -175,3 +175,10 @@ Icon
 Network Trash Folder
 Temporary Items
 .apdisk
+.env/
+
+
+# Only for Development only
+**/migrations/**
+!**/migrations
+!**/migrations/__init__.py

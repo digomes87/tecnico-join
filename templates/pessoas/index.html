@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Listagem de Posts{% endblock %}
+{% block content %}
+{% load static %}
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Agradeço de Coração a Join pela Oportunidade</h1>
+      <p class="lead">Aqui meu teste, usei o Git, criei algumas branch para melhor auxiliar na analise das etapas que
+        desenvolvi.</p>
+    </div>
+  </div>
+  <div class="container">
+    <p>Exe 1: R- A, B</p>
+    <div class="row">
+      {% for pessoa in p %}
+      <div class="col">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="https://via.placeholder.com/286x180" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{pessoa.nome}}</h5>
+            <p class="card-text">{{pessoa.id_cargo}}</p>
+            <p class="card-text">{{pessoa.admissao}}</p>
+            <a href="#" class="btn btn-primary">Atualizar informações</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <p>Exe 7:</p>
+    <h2>Mapa</h2>
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary center" data-toggle="modal" data-target="#exampleModal"> Incluir Novo
+      Alvo </button>
+    <!-- Modal -->
+
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Coordenadas</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+            <form method="post" action="">
+              {% csrf_token %}
+              {{form.as_p}}
+              <div class="modal fade" tabindex="-1" role="dialog" id="modal">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content"></div>
+                </div>
+              </div>
+              <!-- Create button -->
+              <button id="create" class="btn btn-primary" type="submit" name="button">Salvar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="map-canvas"/>
+  
+  {% endblock %}
