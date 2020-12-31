@@ -17,8 +17,8 @@ class Pessoa(models.Model):
 class  Mapa(models.Model):
     identificador = models.CharField(max_length=100)
     nome = models.CharField(max_length=50)
-    latitude = models.IntegerField(null=False)
-    longitude = models.IntegerField(null=False)
+    latitude = models.DecimalField(max_digits=9, decimal_places=6)
+    longitude = models.DecimalField(max_digits=9, decimal_places=6)
 
     def __str__(self):
         return self.identificador

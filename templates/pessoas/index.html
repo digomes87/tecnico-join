@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% block title %}Listagem de Posts{% endblock %}
 {% block content %}
+{% load static %}
 <div class="container">
   <div class="jumbotron jumbotron-fluid">
     <div class="container">
@@ -62,4 +63,6 @@
       </div>
     </div>
   </div>
+  <div id="map-canvas"/>
+  
   {% endblock %}
